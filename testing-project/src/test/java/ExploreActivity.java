@@ -2,12 +2,6 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationManager;
-import com.google.android.gms.maps.GoogleMap;
-
 public class ExploreActivity {
 
     AndroidDriver driver;
@@ -78,9 +72,5 @@ public class ExploreActivity {
         * */
         this.btnBack.click();
         //this.driver.navigate().back();
-    }
-
-    public void getMarker() {
-        
     }
 }

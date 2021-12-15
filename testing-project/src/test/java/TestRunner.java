@@ -3,9 +3,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.core.annotation.Order;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -53,35 +53,36 @@ public class TestRunner {
         return info;
     }
 
-    @Test
-    public void buttonRandomTest() throws Exception {
-        this.mainActivity = new MainActivity(this.driver);
-        this.mainActivity.clickOnButtonExplore();
-
-        this.exploreActivity = new ExploreActivity(this.driver);
-
-        int count = 0;
-        String info;
-        do {
-            Thread.sleep(1000);
-            this.exploreActivity.clickOnButtonRandom();
-            info = this.exploreActivity.getTextFromCityInfoTextLabel();
-            count++;
-            if (count > 10){
-                Assert.fail("Unable to find city");
-                return;
-            }
-        } while (info.equals(strCase1) || info.equals(strCase2)); // while (temp == strCase1 || temp == strCase2);
-
-        Assert.assertTrue(true);
-    }
-
     public String getCurrentActivity() throws Throwable {
         String temp = this.driver.currentActivity();
         return !temp.equals("") ? temp : "0";
     }
 
-    @Test
+    @Test//(priority = 3)
+    @Order(3)
+    public void buttonRandomTest() throws Exception {
+        String info = findRandomCity();
+        if (info.equals(""))
+            Assert.fail();
+        Assert.assertTrue(true);
+
+        this.exploreActivity.clickOnButtonBack();
+    }
+
+    @Test//(priority = 1)
+    @Order(1)
+    public void cycleActivities_Main_Favorites() throws Throwable {
+        this.mainActivity = new MainActivity(this.driver);
+        this.mainActivity.clickOnButtonFavorites();
+        this.favoritesActivity = new FavoritesActivity(this.driver);
+        if (getCurrentActivity().equals(".FavoritesActivity") == false)
+            Assert.fail();
+        this.favoritesActivity.clickOnButtonBack();
+        Assert.assertEquals(getCurrentActivity(),".MainActivity", getCurrentActivity());
+    }
+
+    @Test//(priority = 2)
+    @Order(2)
     public void cycleActivities_Main_Explore_Favorites() throws Throwable {
         this.mainActivity = new MainActivity(this.driver);
         this.mainActivity.clickOnButtonExplore();
@@ -102,46 +103,9 @@ public class TestRunner {
         Assert.assertEquals(getCurrentActivity(),".MainActivity");
     }
 
-    @Test
-    public void cycleActivities_Main_Favorites() throws Throwable {
-        this.mainActivity = new MainActivity(this.driver);
-        this.mainActivity.clickOnButtonFavorites();
-        this.favoritesActivity = new FavoritesActivity(this.driver);
-        if (getCurrentActivity().equals(".FavoritesActivity") == false)
-            Assert.fail();
-        this.favoritesActivity.clickOnButtonBack();
-        Assert.assertEquals(getCurrentActivity(),".MainActivity", getCurrentActivity());
-    }
-
-    @Test
+    @Test//(priority = 4)
+    @Order(4)
     public void addingCityToFavorites() throws Throwable {
-        this.mainActivity = new MainActivity(this.driver);
-        this.mainActivity.clickOnButtonExplore();
-
-        this.exploreActivity = new ExploreActivity(this.driver);
-
-        int count = 0;
-        String info;
-        do {
-            Thread.sleep(1000);
-            this.exploreActivity.clickOnButtonRandom();
-            info = this.exploreActivity.getTextFromCityInfoTextLabel();
-            count++;
-            if (count > 10){
-                Assert.fail("Unable to find city");
-                return;
-            }
-        } while (info.equals(strCase1) || info.equals(strCase2));
-
-        this.exploreActivity.clickOnButtonLike();
-        this.exploreActivity.clickOnButtonFavorites();
-
-        this.favoritesActivity = new FavoritesActivity(this.driver);
-        Assert.assertTrue(info.contains(this.favoritesActivity.getCityName()));
-    }
-
-    @Test
-    public void addingCityToFavorites2() throws Throwable {
         String info = findRandomCity();
         if (info.equals(""))
             Assert.fail();
@@ -151,9 +115,13 @@ public class TestRunner {
 
         this.favoritesActivity = new FavoritesActivity(this.driver);
         Assert.assertTrue(info.contains(this.favoritesActivity.getCityName()));
+
+        this.favoritesActivity.clickOnButtonBack();
+        this.exploreActivity.clickOnButtonBack();
     }
 
-    @Test
+    @Test//(priority = 5)
+    @Order(5)
     public void removeCityFromFavorites() throws Throwable {
         String info = findRandomCity();
         if (info.equals(""))
@@ -166,8 +134,11 @@ public class TestRunner {
         this.favoritesActivity.clickOnButtonDelete();
 
         Assert.assertTrue(this.favoritesActivity.getCityName().equals(""));
-    }
 
+        this.favoritesActivity.clickOnButtonBack();
+        this.exploreActivity.clickOnButtonBack();
+    }
+/*
     @Test
     public void markerCoordinatesTest() throws Throwable {
         String info = findRandomCity();
@@ -196,7 +167,5 @@ public class TestRunner {
         longi = Float.parseFloat(longitude);
 
         this.exploreActivity.clickOnButtonSwitch();
-
-
-    }
+    }*/
 }

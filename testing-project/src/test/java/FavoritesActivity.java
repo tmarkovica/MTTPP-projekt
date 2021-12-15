@@ -22,14 +22,6 @@ public class FavoritesActivity {
         if (this.driver == null)
             return;
 
-        this.recycler = (MobileElement)
-                this.driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android." +
-                        "widget.FrameLayout[2]/android.view.ViewGroup/android.widget.RelativeLayout")); // brisi
-/*
-        this.group = (MobileElement)
-                this.driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android." +
-                        "widget.FrameLayout[2]/android.view.ViewGroup/android.widget.RelativeLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.RelativeLayout"));
-*/
         this.textLabelCityName = (MobileElement)
                 this.driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android." +
                         "widget.FrameLayout[2]/android.view.ViewGroup/android.widget.RelativeLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.TextView[1]"));
@@ -63,8 +55,8 @@ public class FavoritesActivity {
         *   Ways of finding this "Navigate up"/"Back Button" change
         *   Same line of code sometimes is able and sometimes unable to get button reference
         * */
-       this.btnBack = (MobileElement)
-                this.driver.findElement(By.className("android.widget.ImageButton"));
+       /*this.btnBack = (MobileElement)
+                this.driver.findElement(By.className("android.widget.ImageButton"));*/
 
         //this.btnBack.click();
 

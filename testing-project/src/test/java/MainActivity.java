@@ -1,8 +1,6 @@
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 public class MainActivity {
 
@@ -31,11 +29,7 @@ public class MainActivity {
                         "view.ViewGroup/android.widget.FrameLayout[2]/android.widget.RelativeLayout/android.widget.Button[2]"));
     }
 
-    public void clickOnButtonFavorites(){
-        /*this.btnFavorites = (MobileElement)
-                this.driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android." +
-                        "view.ViewGroup/android.widget.FrameLayout[2]/android.widget.RelativeLayout/android.widget.Button[1]"));*/
-
+    public void clickOnButtonFavorites() {
         this.btnFavorites.click();
     }
 
