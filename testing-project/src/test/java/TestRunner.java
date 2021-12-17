@@ -133,39 +133,9 @@ public class TestRunner {
         this.favoritesActivity = new FavoritesActivity(this.driver);
         this.favoritesActivity.clickOnButtonDelete();
 
-        Assert.assertTrue(this.favoritesActivity.getCityName().equals(""));
+        Assert.assertEquals(this.favoritesActivity.getCityName(), "");
 
         this.favoritesActivity.clickOnButtonBack();
         this.exploreActivity.clickOnButtonBack();
     }
-/*
-    @Test
-    public void markerCoordinatesTest() throws Throwable {
-        String info = findRandomCity();
-        if (info.equals(""))
-            Assert.fail();
-
-        String latitude = "0";
-        String longitude = "0";
-
-        Scanner scanner = new Scanner(info);
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            if (line.contains("latitude:"))
-                latitude = line;
-            if (line.contains("longitude:"))
-                longitude = line;
-        }
-        scanner.close();
-
-        float lati, longi = 0;
-
-        latitude = latitude.replace("latitude: ", "");
-        longitude = longitude.replace("longitude: ", "");
-
-        lati = Float.parseFloat(latitude);
-        longi = Float.parseFloat(longitude);
-
-        this.exploreActivity.clickOnButtonSwitch();
-    }*/
 }

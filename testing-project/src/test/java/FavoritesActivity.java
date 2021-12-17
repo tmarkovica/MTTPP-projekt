@@ -7,8 +7,6 @@ public class FavoritesActivity {
 
     AndroidDriver driver;
 
-    MobileElement recycler;
-    MobileElement group;
     MobileElement textLabelCityName;
     MobileElement btnDelete;
     MobileElement btnBack;
@@ -51,15 +49,6 @@ public class FavoritesActivity {
     }
 
     public void clickOnButtonBack(){
-        /*
-        *   Ways of finding this "Navigate up"/"Back Button" change
-        *   Same line of code sometimes is able and sometimes unable to get button reference
-        * */
-       /*this.btnBack = (MobileElement)
-                this.driver.findElement(By.className("android.widget.ImageButton"));*/
-
-        //this.btnBack.click();
-
         this.driver.navigate().back();
     }
 }

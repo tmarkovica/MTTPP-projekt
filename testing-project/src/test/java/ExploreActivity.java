@@ -67,10 +67,6 @@ public class ExploreActivity {
     }
 
     public void clickOnButtonBack(){
-        /*
-        *   Here is able to find element by xpath, but  navigate().back() method doesn't work
-        * */
         this.btnBack.click();
-        //this.driver.navigate().back();
     }
 }

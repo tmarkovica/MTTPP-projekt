@@ -16,7 +16,7 @@ Citys_to_Visit_List application repo https://github.com/tmarkovica/Citys_to_Visi
 8. Citys_to_Visit_List.apk: https://github.com/tmarkovica/MTTPP-projekt/blob/master/app-release.apk
 
 
-## Setup
+## Project setup
 
 ### 1. Start Daemon process
 Go to location in terminal: C:\Users\{username}\AppData\Local\Android\Sdk\platform-tools
@@ -52,3 +52,6 @@ Then change JSON Representation to this:
 "deviceName": "emulator",
 "platformName": "Android"
 }
+
+### 5. Change path to apk file
+In maven project inside TestRunner class you will have to change "path" attribute so that it's value (path) leads to location of app-release.apk.
