@@ -19,33 +19,33 @@ Citys_to_Visit_List application repo https://github.com/tmarkovica/Citys_to_Visi
 ## Project setup
 
 ### 1. Start Daemon process
-Go to location in terminal: C:\Users\{username}\AppData\Local\Android\Sdk\platform-tools \
-Type command: adb devices
+- Go to location in terminal: `C:\Users\{username}\AppData\Local\Android\Sdk\platform-tools`
+- Type command: `adb devices`
 
 ### 2. Run Android emulator
 You can run emulator from Android Studio or Windows terminal.
 
-Check emulator devices installed \
-Go to location in terminal: `C:\Users\{username}\AppData\Local\Android\Sdk\emulator` \
-Type command: emulator -avd -list-avds \
+- Check emulator devices installed
+- Go to location in terminal: `C:\Users\{username}\AppData\Local\Android\Sdk\emulator`
+- Type command: emulator `-avd -list-avds`
 
-Run emulator device from terminal \
-Go to location in terminal: C:\Users\{username}\AppData\Local\Android\Sdk\emulator \
-Type command: emulator -avd {emulator device name}
+- Run emulator device from terminal \
+- Go to location in terminal: `C:\Users\{username}\AppData\Local\Android\Sdk\emulator`
+- Type command: `emulator -avd {emulator device name}`
 
 ### 3. Install app on connected device
-Make sure that apk file is inside "platform-tools" folder: C:\Users\{username}\AppData\Local\Android\Sdk\platform-tools \
-Type command: adb install app-release.apk
+- Make sure that apk file is inside "platform-tools" folder: `C:\Users\{username}\AppData\Local\Android\Sdk\platform-tools`
+- Type command: `adb install app-release.apk`
 
 ### 4. Appium setup
-Set up environment variables by clicking on Edit Configurations \
-ANDROID_HOME = C:\Users\{username}\AppData\Local\Android\Sdk \
-JAVA_HOME = C:\Program Files (x86)\Java\jre1.8.0_311 \
-Click Save and Restart \
-Start Server \
-When window The server is running appears \
-Click on File -> New Session Window \
-Then change JSON Representation to this:
+- Set up environment variables by clicking on Edit Configurations
+`ANDROID_HOME = C:\Users\{username}\AppData\Local\Android\Sdk`
+`JAVA_HOME = C:\Program Files (x86)\Java\jre1.8.0_311`
+- Click Save and Restart
+- Start Server
+- When window The server is running appears
+- Click on File -> New Session Window
+- Then change JSON Representation to this:
 ```
 {
     "app": "C:\\Users\\{username}\\AppData\\Local\\Android\\Sdk\\platform-tools\\app-release.apk",
