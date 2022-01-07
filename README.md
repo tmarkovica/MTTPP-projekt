@@ -38,8 +38,8 @@ You can run emulator from Android Studio or Windows terminal.
 - Type command: `adb install app-release.apk`
 
 ### 4. Appium setup
-- Set up environment variables by clicking on Edit Configurations
-`ANDROID_HOME = C:\Users\{username}\AppData\Local\Android\Sdk`
+- Set up environment variables by clicking on Edit Configurations \
+`ANDROID_HOME = C:\Users\{username}\AppData\Local\Android\Sdk` \
 `JAVA_HOME = C:\Program Files (x86)\Java\jre1.8.0_311`
 - Click Save and Restart
 - Start Server
