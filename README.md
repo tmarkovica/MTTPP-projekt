@@ -26,7 +26,7 @@ Type command: adb devices
 You can run emulator from Android Studio or Windows terminal.
 
 Check emulator devices installed \
-Go to location in terminal: C:\Users\{username}\AppData\Local\Android\Sdk\emulator \
+Go to location in terminal: `C:\Users\{username}\AppData\Local\Android\Sdk\emulator` \
 Type command: emulator -avd -list-avds \
 
 Run emulator device from terminal \
