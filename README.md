@@ -2,7 +2,7 @@
 
 This is project for Software Testing Methods and Techniques course (hrv. Metode i tehnike testiranja programske podrške). Goal of this project is automation testing of android application. Project will test android application that I have developed for previous course Basics of web and mobile application development (hrv. Osnove razvoja web i mobilnih aplikacija). \
 Testing project repo https://github.com/tmarkovica/MTTPP-projekt \
-Citys_to_Visit_List application repo https://github.com/tmarkovica/Citys_to_Visit_List
+Citys_to_Visit_List application repo https://github.com/tmarkovica/Cities_to_Visit_List
 
 ## Tools required for this project
 
